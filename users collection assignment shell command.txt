@@ -1,0 +1,172 @@
+> use assignment
+switched to db assignment
+***************************************************************************************************************************************************
+
+> db.users.insert({"first_name":"Kalpit", "last_name":"Sharma", "email":"abc@gmail.com", "gender":"Male", "ip_address":"192.168.1.1", "age":"24"})
+WriteResult({ "nInserted" : 1 })
+***************************************************************************************************************************************************
+
+> db.users.find().pretty()
+{
+        "_id" : ObjectId("619c69896a93d7bcfd72f97b"),
+        "first_name" : "Kalpit",
+        "last_name" : "Sharma",
+        "email" : "abc@gmail.com",
+        "gender" : "Male",
+        "ip_address" : "192.168.1.1",
+        "age" : "24"
+}
+***************************************************************************************************************************************************
+
+
+
+> db.users.insertMany([{"first_name":"Jourdain", "last_name":"Benthall", "email":"jbenthall1@ebay.co.uk", "gender":"Male", "ip_address":"1.1.1.1", "age":"25"},{"first_name":"Brittan", "last_name":"Shaxby", "email":"bshaxy2@bluehost.com", "gender":"Male", "ip_address":"1.2.3.4", "age":"20"},{"first_name":"Addy", "last_name":"Featonby", "email":"afeatonby3@hostgator.com", "gender":"Female", "ip_address":"12.11.15", "age":"19"},{"first_name":"Perceval", "last_name":"Tollfree", "email":"ptollfree4@seesaa.com", "gender":"Female", "id_address":"11.14.124", "age":"19"},{"first_name":"Damon", "last_name":"McEvogue", "email":"dmcelvogue5@joomla.org", "gender":"Male", "ip_address":"127.0.0.1", "age":"35"},{"first_name":"Kare", "last_name":"Fishburn", "email":"kfishburn6@columbai.edu", "gender":"Male", "ip_address":"192.168.1.0", "age":"30"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("619c6fae6a93d7bcfd72f97d"),
+                ObjectId("619c6fae6a93d7bcfd72f97e"),
+                ObjectId("619c6fae6a93d7bcfd72f97f"),
+                ObjectId("619c6fae6a93d7bcfd72f980"),
+                ObjectId("619c6fae6a93d7bcfd72f981"),
+                ObjectId("619c6fae6a93d7bcfd72f982")
+        ]
+}
+****************************************************************************************************************************************************
+
+
+> db.users.find().pretty()
+{
+        "_id" : ObjectId("619c69896a93d7bcfd72f97b"),
+        "first_name" : "Kalpit",
+        "last_name" : "Sharma",
+        "email" : "abc@gmail.com",
+        "gender" : "Male",
+        "ip_address" : "192.168.1.1",
+        "age" : "24"
+}
+{
+        "_id" : ObjectId("619c6ab66a93d7bcfd72f97c"),
+        "id" : 1,
+        "first_name" : "Barnaby",
+        "last_name" : "Grinov",
+        "email" : "bgrinov0@aboutads.info",
+        "gender" : "Genderqueer"
+}
+{
+        "_id" : ObjectId("619c6fae6a93d7bcfd72f97d"),
+        "first_name" : "Jourdain",
+        "last_name" : "Benthall",
+        "email" : "jbenthall1@ebay.co.uk",
+        "gender" : "Male",
+        "ip_address" : "1.1.1.1",
+        "age" : "25"
+}
+{
+        "_id" : ObjectId("619c6fae6a93d7bcfd72f97e"),
+        "first_name" : "Brittan",
+        "last_name" : "Shaxby",
+        "email" : "bshaxy2@bluehost.com",
+        "gender" : "Male",
+        "ip_address" : "1.2.3.4",
+        "age" : "20"
+}
+{
+        "_id" : ObjectId("619c6fae6a93d7bcfd72f97f"),
+        "first_name" : "Addy",
+        "last_name" : "Featonby",
+        "email" : "afeatonby3@hostgator.com",
+        "gender" : "Female",
+        "ip_address" : "12.11.15",
+        "age" : "19"
+}
+{
+        "_id" : ObjectId("619c6fae6a93d7bcfd72f980"),
+        "first_name" : "Perceval",
+        "last_name" : "Tollfree",
+        "email" : "ptollfree4@seesaa.com",
+        "gender" : "Female",
+        "id_address" : "11.14.124",
+        "age" : "19"
+}
+{
+        "_id" : ObjectId("619c6fae6a93d7bcfd72f981"),
+        "first_name" : "Damon",
+        "last_name" : "McEvogue",
+        "email" : "dmcelvogue5@joomla.org",
+        "gender" : "Male",
+        "ip_address" : "127.0.0.1",
+        "age" : "35"
+}
+{
+        "_id" : ObjectId("619c6fae6a93d7bcfd72f982"),
+        "first_name" : "Kare",
+        "last_name" : "Fishburn",
+        "email" : "kfishburn6@columbai.edu",
+        "gender" : "Male",
+        "ip_address" : "192.168.1.0",
+        "age" : "30"
+}
+****************************************************************************************************************************************************
+
+> db.users.findOne()
+{
+        "_id" : ObjectId("619c69896a93d7bcfd72f97b"),
+        "first_name" : "Kalpit",
+        "last_name" : "Sharma",
+        "email" : "abc@gmail.com",
+        "gender" : "Male",
+        "ip_address" : "192.168.1.1",
+        "age" : "24"
+}
+****************************************************************************************************************************************************
+
+> db.users.findOne({"_id" : ObjectId("619c69896a93d7bcfd72f97b")})
+{
+        "_id" : ObjectId("619c69896a93d7bcfd72f97b"),
+        "first_name" : "Kalpit",
+        "last_name" : "Sharma",
+        "email" : "abc@gmail.com",
+        "gender" : "Male",
+        "ip_address" : "192.168.1.1",
+        "age" : "24"
+}
+***************************************************************************************************************************************************
+
+> db.users.update({"first_name":"Kalpit"}, {$set: {"birth_place":"Gwalior"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+****************************************************************************************************************************************************
+
+
+> db.users.find({"first_name":"Kalpit"}).pretty()
+{
+        "_id" : ObjectId("619c69896a93d7bcfd72f97b"),
+        "first_name" : "Kalpit",
+        "last_name" : "Sharma",
+        "email" : "abc@gmail.com",
+        "gender" : "Male",
+        "ip_address" : "192.168.1.1",
+        "age" : "24",
+        "birth_place" : "Gwalior"
+}
+****************************************************************************************************************************************************
+
+> db.users.updateMany({"gender":"Female"}, {$set: {"gender" :"Male"}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+****************************************************************************************************************************************************
+
+ db.users.remove({"first_name":"Addy"})
+WriteResult({ "nRemoved" : 1 })
+****************************************************************************************************************************************************
+
+> db.users.deleteOne({"first_name":"Kare"})
+{ "acknowledged" : true, "deletedCount" : 1 }
+****************************************************************************************************************************************************
+
+ db.users.deleteMany({"gender":"Male"})
+{ "acknowledged" : true, "deletedCount" : 5 }
+****************************************************************************************************************************************************
+
+> db.dropDatabase()
+{ "ok" : 1 }
+****************************************************************************************************************************************************
